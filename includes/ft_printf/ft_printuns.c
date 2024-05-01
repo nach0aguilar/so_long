@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printuns.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/10/13 13:52:28 by igaguila          #+#    #+#             */
+/*   Updated: 2023/10/23 08:50:28 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "ft_printf.h"
 
-int main (int argc, char **argv)
+static void	ft_putchar_fd(char c, int fd)
 {
-	t_game **game;
+	write(fd, &c, 1);
+}
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+int	ft_printuns(unsigned int n)
+{
+	int	count;
+
+	count = 1;
+	if (n >= 10)
+		count += ft_printuns(n / 10);
+	ft_putchar_fd((n % 10) + '0', 1);
+	return (count);
 }

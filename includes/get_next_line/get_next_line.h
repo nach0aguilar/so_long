@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 12:22:37 by igaguila         ###   ########.fr       */
+/*   Created: 2023/10/16 20:14:32 by igaguila          #+#    #+#             */
+/*   Updated: 2024/04/09 16:08:52 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG
-
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
+# include <fcntl.h>
 # include <stdio.h>
-# include <unistd.h>
 # include <stdlib.h>
-# include <memory.h>
-# include "../MLX42/include/MLX42/MLX42.h"
-# include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
-# include "libft/libft.h"
-# define WIDTH 5120
-# define HEIGHT 2880
+# include <unistd.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
-typedef struct  s_game
-{
-    char        **map;
-    
-}               t_game;
-
-
-// MAP //
-t_game *pull_map(char *map);
+char	*get_next_line(int fd);
+size_t	ft_strlen_gnl(char *str);
+char	*ft_strjoin_gnl(char *s1, char *s2);
+char	*ft_strchr_gnl(char *s, int c);
+char	*ft_readbuffer(int fd, char *container);
+char	*ft_deleteline(char *container);
+char	*ft_newline(char *container);
 
 #endif

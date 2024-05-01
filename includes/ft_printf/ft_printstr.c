@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_printstr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/10/15 15:45:41 by igaguila          #+#    #+#             */
+/*   Updated: 2023/10/23 08:50:20 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "ft_printf.h"
 
-int main (int argc, char **argv)
+int	ft_printstr(char *s)
 {
-	t_game **game;
+	int	i;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	i = 0;
+	if (!s)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }

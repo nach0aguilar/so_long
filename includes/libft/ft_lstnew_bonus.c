@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/29 13:58:40 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/30 17:55:48 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
 
-int main (int argc, char **argv)
+t_list	*ft_lstnew(void *content)
 {
-	t_game **game;
+	t_list	*list;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
+	list = (t_list *)malloc(sizeof(t_list));
+	if (!list)
 		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

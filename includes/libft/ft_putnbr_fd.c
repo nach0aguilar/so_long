@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/28 12:24:33 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/30 17:58:29 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
+#include <unistd.h>
 
-int main (int argc, char **argv)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_game **game;
-
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
+	else
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n *= -1;
+		}
+		if (n >= 10)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
 }

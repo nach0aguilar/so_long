@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/15 18:47:06 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/30 17:58:08 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
+#include <string.h>
 
-int main (int argc, char **argv)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_game **game;
+	size_t			i;
+	unsigned char	*newdst;
+	unsigned char	*newsrc;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
+	newdst = (unsigned char *)dest;
+	newsrc = (unsigned char *)src;
+	i = n;
+	if (!newdst && !newsrc)
 		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	if (src > dest)
+		ft_memcpy(dest, src, n);
+	else
+	{
+		while (i > 0)
+		{
+			i--;
+			newdst[i] = newsrc[i];
+		}
+	}
+	return (newdst);
 }

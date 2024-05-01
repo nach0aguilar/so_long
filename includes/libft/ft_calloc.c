@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/19 17:46:07 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/23 18:03:04 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-int main (int argc, char **argv)
+void	*ft_calloc(size_t count, size_t size)
 {
-	t_game **game;
+	void	*pointer;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	pointer = malloc(count * size);
+	if (pointer == NULL)
+		return (pointer);
+	ft_bzero(pointer, count * size);
+	return (pointer);
 }

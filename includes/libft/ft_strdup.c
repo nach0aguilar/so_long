@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/19 23:20:27 by igaguila          #+#    #+#             */
+/*   Updated: 2023/10/02 12:05:14 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-int main (int argc, char **argv)
+char	*ft_strdup(const char *s)
 {
-	t_game **game;
+	unsigned int	i;
+	char			*copy;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	copy = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	i = 0;
+	if (!copy)
+		return (NULL);
+	while (s[i])
+	{
+		copy[i] = s[i];
+		i++;
+	}
+	copy[i] = '\0';
+	return (copy);
 }

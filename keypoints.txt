@@ -1,6 +1,22 @@
-////////////// C O N T R O L   D E   E R R O R E S //////////////
+////////////// C O N T R O L   D E   E R R O R E S
 
 - El mapa tiene que estar cerrado por paredes (1) y debe ser cuadrado / rectangular.
 - Tiene que haber un solo jugador y no puede estar encerrado (tiene que poder ganar).
 - Tiene que haber una sola salida y no puede estar encerrada (tiene que poder salir).
-- 
+- Tiene que tener 2 parámetros, el ejecutable de so_long y el mapa (con la extensión .ber).
+- Al cerrar el juego, minimizarlo o mover la ventana no puede haber leaks ni errores.
+
+////////////// J U E G O
+
+- WASD para mover personaje, ESC o cruz roja para cerrar el juego.
+- El personaje no puede atravesar muros.
+- El personaje tiene que recoger todos los objetos antes de poder salir.
+
+////////////// M A I N
+
+- Se declara la variable game como una estructura.
+- Se comprueba que los argumentos estén correctamente (que sean dos y que el segundo tenga la extensión .ber).
+- Comprobamos que el mapa sea un rectángunlo.
+- Se comprueba que los muros no sean traspasables desde ninguna dirección vertical / horizontal.
+- Iniciar juego (cargar imágenes, movimientos, objetos y texturas).
+- Finalizar ya sea por el jugador ganando o por cierre de la ventana y liberar la memoria utilizada.

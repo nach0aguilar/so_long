@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get.c                                              :+:      :+:    :+:   */
+/*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/30 19:28:06 by igaguila          #+#    #+#             */
-/*   Updated: 2024/04/30 19:36:02 by igaguila         ###   ########.fr       */
+/*   Created: 2024/05/01 12:14:43 by igaguila          #+#    #+#             */
+/*   Updated: 2024/05/01 12:19:07 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/so_long.h"
+#include "../includes/so_long.h"
 
-t_game *getmap(char *map)
+void free_str(char **str)
 {
-    
+    int i;
+
+    i = 0;
+    while(str[i])
+    {
+        free(str[i]);
+        i++;
+    }
+    free(str);
 }

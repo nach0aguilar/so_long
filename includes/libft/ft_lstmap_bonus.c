@@ -1,23 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/29 21:05:31 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/30 17:55:38 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
 
-int main (int argc, char **argv)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_game **game;
+	t_list	*node;
+	t_list	*newlist;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	newlist = NULL;
+	while (lst != 0)
+	{
+		node = ft_lstnew(0);
+		if (!node)
+		{
+			ft_lstclear(&newlist, del);
+			return (0);
+		}
+		node->content = f(lst->content);
+		ft_lstadd_back(&newlist, node);
+		lst = lst->next;
+	}
+	return (newlist);
 }

@@ -1,23 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/18 12:40:46 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/30 11:42:44 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "libft.h"
+#include <stdio.h>
+#include <string.h>
 
-int main (int argc, char **argv)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_game **game;
+	int		i;
+	char	*newstring;
+	char	chr;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	i = ft_strlen(s);
+	chr = (char)c;
+	newstring = (char *)s;
+	while (i >= 0)
+	{
+		if (s[i] == chr)
+			return (&newstring[i]);
+		else
+			i--;
+	}
+	return (NULL);
 }
+
+// int	main(void)
+// {
+// 	char string[] = "teste";
+// 	printf("%s\n", ft_strrchr(string, '\0'));
+// }

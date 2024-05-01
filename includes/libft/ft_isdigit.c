@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/11 16:40:36 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/23 17:15:56 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <stdio.h>
 
-int main (int argc, char **argv)
+int	ft_isdigit(int c)
 {
-	t_game **game;
-
-	if (argc == 1 || (argc == 2 && !argv[1]))
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
 		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
 }
+
+/*int main()
+{
+	char caracter = 'a';
+
+	printf("%d", ft_isdigit(caracter));
+}*/

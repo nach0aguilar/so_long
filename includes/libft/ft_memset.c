@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 11:53:57 by igaguila         ###   ########.fr       */
+/*   Created: 2023/09/14 12:21:14 by igaguila          #+#    #+#             */
+/*   Updated: 2023/09/17 18:13:33 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include <stdio.h>
+#include <string.h>
 
-int main (int argc, char **argv)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_game **game;
+	size_t			i;
+	unsigned char	*newstr;
 
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
+	i = 0;
+	newstr = (unsigned char *)b;
+	while (i < len)
+	{
+		newstr[i] = (unsigned char)c;
+		i++;
+	}
+	return (b);
 }
+
+/*int	main(void)
+{
+	char string[50];
+	strcpy(string, "caldodepollo");
+	puts(string);
+	ft_memset(string, 'c', 5);
+	puts(string);
+}*/
