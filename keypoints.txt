@@ -20,3 +20,17 @@
 - Se comprueba que los muros no sean traspasables desde ninguna dirección vertical / horizontal.
 - Iniciar juego (cargar imágenes, movimientos, objetos y texturas).
 - Finalizar ya sea por el jugador ganando o por cierre de la ventana y liberar la memoria utilizada.
+
+////////////// E S T R U C T U R A
+
+- Cada nodo de la estructura tiene que contener los siguientes elementos:
+    * Mapa como array de caracteres bidimensional (array doble puntero).
+    * Dos enteros que sean columnas y filas.
+    * Dos enteros que que sean la posición X y posición Y.
+    * Dos enteros que sean los movimientos en X y en Y.
+    * Un caracter que represente al jugador, en este caso la P.
+    * Un caracter que represente al objeto, en este caso la C.
+    * Un caracter que represente a la salida, en este caso la E.
+    * Tres enteros que cuenten cuantos jugadores, objetos y salidas hay.
+    * Un entero que cuente el número de movimientos (cada vez que el jugador se desplaza una casilla).
+    * Todas las imágenes tienen que estar tipificadas como mlx_image_t.
