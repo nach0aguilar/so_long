@@ -6,13 +6,13 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:51:08 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/01 22:56:47 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/04 11:42:43 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void error_argument(char *error, char *str)
-{
+// void error_argument(char *error, char *str)
+// {
     
-}
+// }

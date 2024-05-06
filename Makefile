@@ -6,7 +6,7 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 19:36:44 by igaguila          #+#    #+#              #
-#    Updated: 2024/05/01 11:52:17 by igaguila         ###   ########.fr        #
+#    Updated: 2024/05/05 13:35:21 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,11 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C $(MLX42)
+	@make -C includes/libft
+	@make -C includes/ft_printf
 	@make -C includes/get_next_line
 # @$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -L$(PRINTF) -L$(GNL) -lft -L$(MLX42) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
-	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -L$(PRINTF) -L$(GNL) -lft -L$(MLX42) -lmlx42 -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
 	
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 	@$(CC) $(CFLAGS) -c $< -o $@
