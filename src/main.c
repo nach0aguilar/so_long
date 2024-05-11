@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/11 17:40:25 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/11 23:23:49 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ int main (int argc, char **argv)
 	
 	if (argc == 1 || (argc == 2 && !argv[1]))
 		return (0);
-
-	ft_printf("%s\n\n", argv[1]);
 	check_extension(argv[1]);
 	game = pull_map(argv[1]);
+	check_walls(game);
 	int i = 0;
 	while(game->map[i])
 	{

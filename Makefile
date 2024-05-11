@@ -6,7 +6,7 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 19:36:44 by igaguila          #+#    #+#              #
-#    Updated: 2024/05/11 17:13:19 by igaguila         ###   ########.fr        #
+#    Updated: 2024/05/11 23:08:51 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MLX42 		= ./MLX42
 SRC_DIR 	= src/
 OBJ_DIR 	= obj/
 
-SRC_FILES 	= check errors free main map struct
+SRC_FILES 	= check errors free main map struct count
 SRC 		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 OBJF 		= .cache_exists

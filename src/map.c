@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:28:06 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/11 17:39:14 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/11 23:20:48 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int     get_rows(char *map)
     close(fd);
     return (rows);
 }
+
+// Function to count the number of objects in the map
 
 void    count_objects(t_game *game, char *line)
 {
@@ -77,6 +79,8 @@ t_game *pull_map(char *map)
         line = get_next_line(fd);
     }
     free(line);
+    count_cols_and_rows(game, map);
+    check_objects(game);
     close(fd);
     return (game);
 }

@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/11 17:16:23 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/11 23:21:29 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ typedef struct s_game
 {
     mlx_t       mlx;
 	char		**map;
-	int			col;
-	int			row;
+	int			cols;
+	int			rows;
 	int			y_pos;
 	int			x_pos;
 	int			y_mov;
@@ -55,6 +55,8 @@ void			count_objects(t_game *game, char *line);
 
 // CHECK
 void 			check_extension(char *map);
+void			check_objects(t_game *game);
+void 			check_walls(t_game *game);
 
 // FREE
 // void			free_str(char **str);
@@ -64,5 +66,11 @@ void			error_argument(char *error);
 
 // STRUCT
 void			create_struct(t_game *game);
+
+// COUNT
+int 			count_rows(char *map);
+int 			count_cols(char *map);
+void			count_cols_and_rows(t_game *game, char *map);
+
 
 #endif
