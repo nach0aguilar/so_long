@@ -6,14 +6,14 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 19:36:44 by igaguila          #+#    #+#              #
-#    Updated: 2024/05/08 19:16:28 by igaguila         ###   ########.fr        #
+#    Updated: 2024/05/11 17:13:19 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
 
-# USER		= tch0u
-USER		= igaguila
+USER		= tch0u
+# USER		= igaguila
 
 CC			= gcc
 CFLAGS 		= -Wextra -Wall -Werror -g
@@ -22,7 +22,7 @@ MLX42 		= ./MLX42
 SRC_DIR 	= src/
 OBJ_DIR 	= obj/
 
-SRC_FILES 	= main map errors
+SRC_FILES 	= check errors free main map struct
 SRC 		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 OBJF 		= .cache_exists
@@ -42,8 +42,8 @@ $(NAME): $(OBJ)
 	@make -C includes/libft
 	@make -C includes/ft_printf
 	@make -C includes/get_next_line
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
-# @$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+# @$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
 	
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 	@$(CC) $(CFLAGS) -c $< -o $@

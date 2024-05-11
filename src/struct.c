@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   struct.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/26 19:38:32 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/11 17:40:25 by igaguila         ###   ########.fr       */
+/*   Created: 2024/05/11 13:27:35 by igaguila          #+#    #+#             */
+/*   Updated: 2024/05/11 13:37:47 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-int main (int argc, char **argv)
-{
-	t_game *game;
-	
-	if (argc == 1 || (argc == 2 && !argv[1]))
-		return (0);
+// Creating the structure for the game
 
-	ft_printf("%s\n\n", argv[1]);
-	check_extension(argv[1]);
-	game = pull_map(argv[1]);
-	int i = 0;
-	while(game->map[i])
-	{
-		printf("%s", game->map[i]);
-		i++;
-	}
+void create_struct(t_game *game)
+{
+    // game->mlx = NULL;
+    game->map = NULL;
+    game->player = 'P';
+    game->moon = 'E';
+    game->btc = 'C';
+    // game->player_img = NULL;
+    // game->btc_img = NULL;
+    // game->moon_img = NULL;
+    // game->floor_img = NULL;
+    // game->wall_img = NULL;
 }

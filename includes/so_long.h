@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/08 20:18:09 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/11 17:16:23 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,20 @@ typedef struct s_game
 
 }				t_game;
 
-// MAP //
+// MAP
 t_game			*pull_map(char *map);
+void			count_objects(t_game *game, char *line);
+
+// CHECK
+void 			check_extension(char *map);
+
+// FREE
+// void			free_str(char **str);
+
+// ERRORS
+void			error_argument(char *error);
+
+// STRUCT
+void			create_struct(t_game *game);
 
 #endif
