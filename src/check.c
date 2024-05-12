@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 12:12:45 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/11 23:28:26 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/12 21:34:40 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void check_walls(t_game *game)
         {
             if (i == 0 || i == game->rows - 1 || j == 0 || j == game->cols - 1)
             {
-                if (game->map[i][j] != '1')
+                if (game->map[i][j] != '1' && game->map[i][j] != '\n')
                     error_argument("Error: The map must be surrounded by walls\n");
             }
             j++;

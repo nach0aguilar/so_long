@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/11 23:21:29 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/12 21:27:58 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void			error_argument(char *error);
 void			create_struct(t_game *game);
 
 // COUNT
-int 			count_rows(char *map);
-int 			count_cols(char *map);
-void			count_cols_and_rows(t_game *game, char *map);
+int 			count_rows(char **map);
+int 			count_cols(char **map);
+void			count_cols_and_rows(t_game *game, char **map);
 
 
 #endif
