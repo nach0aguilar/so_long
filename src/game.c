@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.c                                           :+:      :+:    :+:   */
+/*   game.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/11 13:27:35 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/13 12:38:09 by igaguila         ###   ########.fr       */
+/*   Created: 2024/05/13 13:57:26 by igaguila          #+#    #+#             */
+/*   Updated: 2024/05/13 17:14:09 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-// Creating the structure for the game
-
-void create_struct(t_game *game)
+int32_t init_game(t_game *game)
 {
-    game->mlx = NULL;
-    game->map = NULL;
-    game->player = 'P';
-    game->moon = 'E';
-    game->btc = 'C';
-    game->player_n = 0;
-    game->moon_n = 0;
-    game->btc_n = 0;
-    game->player_img = NULL;
-    game->btc_img = NULL;
-    game->moon_img = NULL;
-    game->floor_img = NULL;
-    game->wall_img = NULL;
+    game->mlx = mlx_init(64 * game->cols, 64 * game->rows, "so_long", false);
+    if (!game->mlx)
+        error_argument("Error: Failed to initialize game\n");
+    load_gui(game);
+    return (1);
 }

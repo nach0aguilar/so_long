@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/13 10:33:16 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:55:51 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 typedef struct s_game
 {
-    mlx_t       mlx;
+    mlx_t       *mlx;
 	char		**map;
 	int			cols;
 	int			rows;
@@ -41,11 +41,11 @@ typedef struct s_game
 	int			moon_n;
 	int			btc_n;
 	int			mov_n;
-	mlx_image_t	player_img;
-	mlx_image_t	btc_img;
-	mlx_image_t	moon_img;
-	mlx_image_t	floor_img;
-	mlx_image_t	wall_img;
+	mlx_image_t	*player_img;
+	mlx_image_t	*btc_img;
+	mlx_image_t	*moon_img;
+	mlx_image_t	*floor_img;
+	mlx_image_t	*wall_img;
 
 }				t_game;
 
@@ -73,5 +73,7 @@ int 			count_rows(char **map);
 int 			count_cols(char **map);
 void			count_cols_and_rows(t_game *game, char **map);
 
+// GUI
+void			load_gui(t_game *game);
 
 #endif
