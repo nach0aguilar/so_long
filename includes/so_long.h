@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/12 21:27:58 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/13 10:33:16 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void			count_objects(t_game *game, char *line);
 void 			check_extension(char *map);
 void			check_objects(t_game *game);
 void 			check_walls(t_game *game);
+void 			check_rectangle(t_game *game);
 
 // FREE
 // void			free_str(char **str);

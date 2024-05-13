@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 12:12:45 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/12 21:34:40 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/13 10:34:07 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,21 @@ void check_walls(t_game *game)
             }
             j++;
         }
+        i++;
+    }
+}
+
+// Function to check the map is a rectangle
+
+void check_rectangle(t_game *game)
+{
+    int i;
+
+    i = 0;
+    while (game->map[i])
+    {
+        if ((int)ft_strlen(game->map[i]) != game->cols)
+            error_argument("Error: The map must be a rectangle\n");
         i++;
     }
 }

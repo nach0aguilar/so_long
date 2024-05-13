@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/12 15:24:43 by igaguila          #+#    #+#             */
-/*   Updated: 2023/09/23 17:19:20 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/13 11:18:44 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,21 @@
 size_t	ft_strlen(const char *str)
 {
 	size_t	i;
+	size_t	len;
 
 	i = 0;
+	len = 0;
 	while (str[i])
-		i++;
-	return (i);
+	{
+		if(str[i] == '\n')
+			i++;
+		else
+		{
+			len++;
+			i++;
+		}
+	}
+	return (len);
 }
 
 /*int main()
