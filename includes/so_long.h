@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/13 20:55:51 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/14 11:44:08 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,18 @@ void			count_cols_and_rows(t_game *game, char **map);
 
 // GUI
 void			load_gui(t_game *game);
+void			delete_gui(t_game *game);
+void			print_gui(t_game *game, char **map);
+void			draw_gui(t_game *game);
+
+// IMAGES
+void    		img_player_to_map(t_game *game, char **map, int col, int row);
+void    		img_btc_to_map(t_game *game, char **map, int col, int row);
+void    		img_moon_to_map(t_game *game, char **map, int col, int row);
+void    		img_floor_to_map(t_game *game, char **map, int col, int row);
+void    		img_wall_to_map(t_game *game, char **map, int col, int row);
+
+// GAME
+int32_t			init_game(t_game *game);
 
 #endif

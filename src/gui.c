@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:31 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/13 22:18:05 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/14 13:00:41 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ void    load_gui(t_game *game)
 {
     mlx_texture_t  *texture;
     
-    texture = mlx_load_png("textures/floor.png");
+    texture = mlx_load_png("./img/floor.png");
     game->floor_img = mlx_texture_to_image(game->mlx, texture);
     mlx_delete_texture(texture);
-    texture = mlx_load_png("textures/wall.png");
+    texture = mlx_load_png("./img/wall.png");
     game->wall_img = mlx_texture_to_image(game->mlx, texture);
     mlx_delete_texture(texture);
-    texture = mlx_load_png("textures/astronaut.png");
+    texture = mlx_load_png("./img/astronaut.png");
     game->player_img = mlx_texture_to_image(game->mlx, texture);
     mlx_delete_texture(texture);
-    texture = mlx_load_png("textures/exit.png");
+    texture = mlx_load_png("./img/exit.png");
     game->moon_img = mlx_texture_to_image(game->mlx, texture);
     mlx_delete_texture(texture);
-    texture = mlx_load_png("textures/bitcoin.png");
+    texture = mlx_load_png("./img/bitcoin.png");
     game->btc_img = mlx_texture_to_image(game->mlx, texture);
     mlx_delete_texture(texture);
 }
@@ -46,12 +46,37 @@ void    delete_gui(t_game *game)
     mlx_delete_image(game->mlx, game->btc_img);
 }   
 
-//
+// Function to print the images
+
+void    print_gui(t_game *game, char **map)
+{
+    int row;
+    int col;
+
+    row = 0;
+    while (row < game->rows)
+    {
+        col = 0;
+        while (col < game->cols)
+        {
+            img_floor_to_map(game, map, col, row);
+            img_wall_to_map(game, map, col, row);
+            img_player_to_map(game, map, col, row);
+            img_btc_to_map(game, map, col, row);
+            img_moon_to_map(game, map, col, row);
+            col++;
+        }
+        row++;
+    }
+}
+
+
+// Function to load and draw the images
 
 void   draw_gui(t_game *game)
 {
     load_gui(game);
-    print_map(game, game->map);
-    player_pos(game);
-    flood_fill(game, game->y_pos, game->x_pos);
+    print_gui(game, game->map);
+    // player_pos(game);
+    // flood_fill(game, game->y_pos, game->x_pos);
 }
