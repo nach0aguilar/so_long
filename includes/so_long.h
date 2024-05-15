@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/15 15:15:09 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/15 20:10:37 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,9 @@ void 			check_walls(t_game *game);
 void 			check_rectangle(t_game *game);
 
 // FREE
-// void			free_str(char **str);
+void			free_str(char **str);
+void			win_game(t_game *game);
+void			close_game(t_game *game);
 
 // ERRORS
 void			error_argument(char *error);
@@ -101,5 +103,11 @@ void			flood_fill(t_game *game, int row, int col);
 
 // GAME
 int32_t			init_game(t_game *game);
+
+// MOVEMENTS
+void			movements(mlx_key_data_t paramkey, t_game *game);
+
+// ACTION
+void			action(t_game *game, int x, int y);
 
 #endif
