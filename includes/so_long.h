@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/14 11:44:08 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:15:09 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_game
 {
     mlx_t       *mlx;
 	char		**map;
+	char		**map_dup;
 	int			cols;
 	int			rows;
 	int			y_pos;
@@ -41,17 +42,23 @@ typedef struct s_game
 	int			moon_n;
 	int			btc_n;
 	int			mov_n;
+	int			btc_account;
+	int			moon_account;
+	int			btc_counter;
+	int			mov_counter;
 	mlx_image_t	*player_img;
 	mlx_image_t	*btc_img;
 	mlx_image_t	*moon_img;
 	mlx_image_t	*floor_img;
 	mlx_image_t	*wall_img;
-
 }				t_game;
 
 // MAP
 t_game			*pull_map(char *map);
 void			count_objects(t_game *game, char *line);
+void			count_and_check(t_game *game);
+char			**duplicate_map(t_game *game, char *map);
+int				get_rows(char *map);
 
 // CHECK
 void 			check_extension(char *map);
@@ -85,6 +92,12 @@ void    		img_btc_to_map(t_game *game, char **map, int col, int row);
 void    		img_moon_to_map(t_game *game, char **map, int col, int row);
 void    		img_floor_to_map(t_game *game, char **map, int col, int row);
 void    		img_wall_to_map(t_game *game, char **map, int col, int row);
+
+// POSITION
+void			get_player_position(t_game *game);
+
+// FLOODFILL
+void			flood_fill(t_game *game, int row, int col);
 
 // GAME
 int32_t			init_game(t_game *game);

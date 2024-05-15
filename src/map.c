@@ -6,11 +6,29 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 19:28:06 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/12 21:15:08 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/15 15:23:47 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+// Fuction to duplicate the map
+
+char    **duplicate_map(t_game *game, char *map)
+{
+    int     row;
+    char    **map_dup;
+
+    row = 0;
+    map_dup = ft_calloc(get_rows(map) + 1, sizeof(char *));
+    while (game->map[row])
+    {
+        map_dup[row] = ft_strdup(game->map[row]);
+        row++;
+    }
+    map_dup[row] = NULL;
+    return (map_dup);
+}
 
 // Function to count the number of objects in the map
 
@@ -33,6 +51,14 @@ int     get_rows(char *map)
     }
     close(fd);
     return (rows);
+}
+
+// Function to count and check objects in the map
+
+void   count_and_check(t_game *game)
+{
+    count_cols_and_rows(game, game->map);
+    check_objects(game);
 }
 
 // Function to count the number of objects in the map
@@ -78,9 +104,9 @@ t_game *pull_map(char *map)
         row++;
         line = get_next_line(fd);
     }
+    game->map_dup = duplicate_map(game, map);
     free(line);
-    count_cols_and_rows(game, game->map);
-    check_objects(game);
+    count_and_check(game);
     close(fd);
     return (game);
 }

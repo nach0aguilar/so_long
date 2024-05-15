@@ -6,7 +6,7 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 19:36:44 by igaguila          #+#    #+#              #
-#    Updated: 2024/05/14 11:37:03 by igaguila         ###   ########.fr        #
+#    Updated: 2024/05/15 13:45:45 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ MLX42 		= ./MLX42
 SRC_DIR 	= src/
 OBJ_DIR 	= obj/
 
-SRC_FILES 	= check errors free main map struct count gui game images
+SRC_FILES 	= check errors free main map struct count gui game images flood_fill position
 SRC 		= $(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))
 OBJ 		= $(addprefix $(OBJ_DIR), $(addsuffix .o, $(SRC_FILES)))
 OBJF 		= .cache_exists
