@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 11:51:08 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/16 12:18:50 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:32:51 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 // Function to print an error message when the arguments are invalid
 
-void error_free(char *error, t_game *game)
+void	error_free(char *error, t_game *game)
 {
-    ft_putstr_fd(error, 2);
-    if (!game)
-    {
-        free_str(game->map);
-        free_str(game->map_dup);
-    }
-    free(game);
-    exit(EXIT_FAILURE);
+	ft_putstr_fd(error, 2);
+	if (game != NULL)
+	{
+		free_str(game->map);
+		free_str(game->map_dup);
+	}
+	free(game);
+	exit(EXIT_FAILURE);
 }

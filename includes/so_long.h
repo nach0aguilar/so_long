@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/16 12:27:48 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:19:51 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@
 
 typedef struct s_game
 {
-    mlx_t       *mlx;
+	mlx_t		*mlx;
 	char		**map;
 	char		**map_dup;
 	int			cols;
@@ -61,10 +61,11 @@ char			**duplicate_map(t_game *game, char *map);
 int				get_rows(char *map);
 
 // CHECK
-void 			check_extension(char *map, t_game *game);
+void			check_extension(char *map, t_game *game);
 void			check_objects(t_game *game);
-void 			check_walls(t_game *game);
-void 			check_rectangle(t_game *game);
+void			check_walls(t_game *game);
+void			check_rectangle(t_game *game);
+void			check_invalid_char(t_game *game);
 
 // FREE
 void			free_str(char **str);
@@ -78,8 +79,8 @@ void			error_free(char *error, t_game *game);
 void			create_struct(t_game *game);
 
 // COUNT
-int 			count_rows(char **map);
-int 			count_cols(char **map);
+int				count_rows(char **map);
+int				count_cols(char **map);
 void			count_cols_and_rows(t_game *game, char **map);
 
 // GUI
@@ -89,11 +90,11 @@ void			print_gui(t_game *game, char **map);
 void			draw_gui(t_game *game);
 
 // IMAGES
-void    		img_player_to_map(t_game *game, char **map, int col, int row);
-void    		img_btc_to_map(t_game *game, char **map, int col, int row);
-void    		img_moon_to_map(t_game *game, char **map, int col, int row);
-void    		img_floor_to_map(t_game *game, char **map, int col, int row);
-void    		img_wall_to_map(t_game *game, char **map, int col, int row);
+void			img_player_to_map(t_game *game, char **map, int col, int row);
+void			img_btc_to_map(t_game *game, char **map, int col, int row);
+void			img_moon_to_map(t_game *game, char **map, int col, int row);
+void			img_floor_to_map(t_game *game, char **map, int col, int row);
+void			img_wall_to_map(t_game *game, char **map, int col, int row);
 
 // POSITION
 void			get_player_position(t_game *game);
@@ -108,6 +109,6 @@ int32_t			init_game(t_game *game);
 void			movements(mlx_key_data_t paramkey, t_game *game);
 
 // ACTION
-void			action(t_game *game, int x, int y);
+void			action(t_game *game, char **map, int x, int y);
 
 #endif

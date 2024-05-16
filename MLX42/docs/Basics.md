@@ -3,7 +3,7 @@ Copyright @ 2021-2022 Codam Coding College. All rights reserved.
 See copyright and license notice in the root project for more information.
 ----------------------------------------------------------------------------->
 
-# Basics
+## Basics
 
 Before starting please read the [index page](./index.md).
 Starting with MLX42 is very straightforward. Here we will make a simple program that will use a makefile and compile

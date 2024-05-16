@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 12:12:45 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/16 12:26:14 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:34:46 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,62 +14,87 @@
 
 // Function to check the extension of the map
 
-void check_extension(char *map, t_game *game)
+void	check_extension(char *map, t_game *game)
 {
-    char *extension;
+	char	*extension;
 
-    extension = ft_strrchr(map, '.');
-    if (!extension || ft_strncmp(extension, ".ber", 4) != 0)
-        error_free("Error: Invalid extension\n", game);
+	extension = ft_strrchr(map, '.');
+	if (!extension || ft_strncmp(extension, ".ber", 4) != 0)
+		error_free("Error: Invalid extension\n", game);
 }
 
 // Function to check the number of objects
 
-void check_objects(t_game *game)
+void	check_objects(t_game *game)
 {
-    if (game->player_n != 1)
-        error_free("Error: The map must have one player\n", game);
-    if (game->moon_n != 1)
-        error_free("Error: The map must have one moon\n", game);
-    if (game->btc_n < 1)
-        error_free("Error: The map must have at least one bitcoin\n", game);
+	if (game->player_n != 1)
+		error_free("Error: The map must have one player\n", game);
+	if (game->moon_n != 1)
+		error_free("Error: The map must have one moon\n", game);
+	if (game->btc_n < 1)
+		error_free("Error: The map must have at least one bitcoin\n", game);
 }
 
 // Function to check the walls
 
-void check_walls(t_game *game)
+void	check_walls(t_game *game)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = 0;
-    while (game->map[i])
-    {
-        j = 0;
-        while (game->map[i][j])
-        {
-            if (i == 0 || i == game->rows - 1 || j == 0 || j == game->cols - 1)
-            {
-                if (game->map[i][j] != '1' && game->map[i][j] != '\n')
-                    error_free("Error: The map must be surrounded by walls\n", game);
-            }
-            j++;
-        }
-        i++;
-    }
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (i == 0 || i == game->rows - 1 || j == 0 || j == game->cols - 1)
+			{
+				if (game->map[i][j] != '1' && game->map[i][j] != '\n')
+					error_free("Error: The map must be surrounded by walls\n",
+						game);
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 // Function to check the map is a rectangle
 
-void check_rectangle(t_game *game)
+void	check_rectangle(t_game *game)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (game->map[i])
-    {
-        if ((int)ft_strlen(game->map[i]) != game->cols)
-            error_free("Error: The map must be a rectangle\n", game);
-        i++;
-    }
+	i = 0;
+	while (game->map[i])
+	{
+		if ((int)ft_strlen(game->map[i]) != game->cols)
+			error_free("Error: The map must be a rectangle\n", game);
+		i++;
+	}
+}
+
+// Function to check invalid characters
+
+void	check_invalid_char(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (game->map[i])
+	{
+		j = 0;
+		while (game->map[i][j])
+		{
+			if (game->map[i][j] != '1' && game->map[i][j] != '0'
+				&& game->map[i][j] != 'P' && game->map[i][j] != 'C'
+				&& game->map[i][j] != 'E' && game->map[i][j] != '\n')
+				error_free("Error: The map cannot contain invalid characters",
+					game);
+			j++;
+		}
+		i++;
+	}
 }

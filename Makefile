@@ -6,14 +6,14 @@
 #    By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/26 19:36:44 by igaguila          #+#    #+#              #
-#    Updated: 2024/05/15 18:49:33 by igaguila         ###   ########.fr        #
+#    Updated: 2024/05/16 17:20:48 by igaguila         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= so_long
 
-USER		= tch0u
-# USER		= igaguila
+# USER		= tch0u
+USER		= igaguila
 
 CC			= gcc
 CFLAGS 		= -Wextra -Wall -Werror -g
@@ -44,8 +44,8 @@ $(NAME): $(OBJ)
 	@make -C includes/libft
 	@make -C includes/ft_printf
 	@make -C includes/get_next_line
-# @$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -framework Cocoa -framework OpenGL -framework IOKit -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
+# @$(CC) $(CFLAGS) $(OBJ) $(LIBFT) $(PRINTF) $(GNL) -L$(MLX42) -lmlx42 -lglfw -L"/Users/$(USER)/.brew/opt/glfw/lib/" -o $(NAME)
 	
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c | $(OBJF)
 	@$(CC) $(CFLAGS) -c $< -o $@
