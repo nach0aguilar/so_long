@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 19:38:55 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/15 20:10:37 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:27:48 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ char			**duplicate_map(t_game *game, char *map);
 int				get_rows(char *map);
 
 // CHECK
-void 			check_extension(char *map);
+void 			check_extension(char *map, t_game *game);
 void			check_objects(t_game *game);
 void 			check_walls(t_game *game);
 void 			check_rectangle(t_game *game);
@@ -72,7 +72,7 @@ void			win_game(t_game *game);
 void			close_game(t_game *game);
 
 // ERRORS
-void			error_argument(char *error);
+void			error_free(char *error, t_game *game);
 
 // STRUCT
 void			create_struct(t_game *game);

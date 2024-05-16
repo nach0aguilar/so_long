@@ -6,11 +6,13 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/15 17:45:05 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/16 00:26:20 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/16 11:40:39 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
+
+// Functions to define the player's movements
 
 static void up(t_game *game)
 {
@@ -31,6 +33,8 @@ static void right(t_game *game)
 {
     action(game, game->x_pos + 1, game->y_pos);
 }
+
+// Function to move the player
 
 void    movements(mlx_key_data_t paramkey, t_game *game)
 {

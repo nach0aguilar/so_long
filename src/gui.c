@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 12:47:31 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/15 15:34:40 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/16 12:26:38 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,5 @@ void   draw_gui(t_game *game)
     get_player_position(game);
     flood_fill(game, game->y_pos, game->x_pos);
     if (game->btc_account != game->btc_n || game->moon_account != game->moon_n)
-        error_argument("Error: The player cannot win on this map\n");
+        error_free("Error: The player cannot win on this map\n", game);
 }
