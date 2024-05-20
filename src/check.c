@@ -6,7 +6,7 @@
 /*   By: igaguila <igaguila@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 12:12:45 by igaguila          #+#    #+#             */
-/*   Updated: 2024/05/16 19:34:46 by igaguila         ###   ########.fr       */
+/*   Updated: 2024/05/20 13:24:40 by igaguila         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 // Function to check the extension of the map
 
-void	check_extension(char *map, t_game *game)
+void	check_extension(char *map)
 {
 	char	*extension;
 
 	extension = ft_strrchr(map, '.');
 	if (!extension || ft_strncmp(extension, ".ber", 4) != 0)
-		error_free("Error: Invalid extension\n", game);
+	{
+		ft_putstr_fd("Error: Invalid extension\n", 2);
+		exit(EXIT_FAILURE);
+	}
 }
 
 // Function to check the number of objects
